@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Module 6: Genome Assembly | High Throughout Genomics Analysis 2021</title>
+  <meta name="description" content="Workshop website for the 2021 High Throughput Genomics Analysis Canadian Bioinformatics Workshop" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Module 6: Genome Assembly | High Throughout Genomics Analysis 2021" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="https://bioinformaticsdotca.github.io/HTG_2021/img/bioinformatics_logo.png" />
+  <meta property="og:description" content="Workshop website for the 2021 High Throughput Genomics Analysis Canadian Bioinformatics Workshop" />
+  <meta name="github-repo" content="bioinformaticsdotca/HTG_2021" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Module 6: Genome Assembly | High Throughout Genomics Analysis 2021" />
+  
+  <meta name="twitter:description" content="Workshop website for the 2021 High Throughput Genomics Analysis Canadian Bioinformatics Workshop" />
+  <meta name="twitter:image" content="https://bioinformaticsdotca.github.io/HTG_2021/img/bioinformatics_logo.png" />
+
+<meta name="author" content="Faculty: Mathieu Bourgey, Jared Simpson, Robert Syme, Daniel Poppleton, BF Francis Ouellette, and Rachade Hmamouchi" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="module-5-structural-variant-calling.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<a href="https://bioinformaticsdotca.github.io/">
+ <img src="img/bioinformatics_logo.png" width="90%" alt="bioinformatics.ca logo" style="display:block; margin-left:auto; margin-right:auto; margin-top:15px;">
+ </a>
+<li><center><strong><a href="./"><br>High Throughput Genomics Analysis<br><br></a></strong></center></li>
+<a href="./">
+ <img src="img/CBW-HTG-icon.png" width="70%" alt="High Throughput Genomics Analysis logo" style="display:block; margin-left:auto; margin-right:auto; ">
+ </a>
+<br>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Workshop Info</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#schedule"><i class="fa fa-check"></i>Schedule</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-work"><i class="fa fa-check"></i>Pre-work</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="meet-your-faculty.html"><a href="meet-your-faculty.html"><i class="fa fa-check"></i>Meet Your Faculty</a></li>
+<li class="chapter" data-level="" data-path="compute-setup.html"><a href="compute-setup.html"><i class="fa fa-check"></i>Compute setup</a>
+<ul>
+<li class="chapter" data-level="" data-path="compute-setup.html"><a href="compute-setup.html#aws-and-unix-intro"><i class="fa fa-check"></i>AWS and Unix Intro</a></li>
+</ul></li>
+<li class="part"><span><b>II Modules</b></span></li>
+<li class="chapter" data-level="" data-path="module-1-introduction.html"><a href="module-1-introduction.html"><i class="fa fa-check"></i>Module 1: Introduction</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-introduction.html"><a href="module-1-introduction.html#lecture"><i class="fa fa-check"></i>Lecture</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-1-introduction.html"><a href="module-1-introduction.html#introduction-to-sequencing-technologies"><i class="fa fa-check"></i>Introduction to Sequencing Technologies</a></li>
+<li class="chapter" data-level="" data-path="module-1-introduction.html"><a href="module-1-introduction.html#introduction-to-hts-file-formats"><i class="fa fa-check"></i>Introduction to HTS File Formats</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-data-visualization-with-igv.html"><a href="module-2-data-visualization-with-igv.html"><i class="fa fa-check"></i>Module 2: Data Visualization with IGV</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-data-visualization-with-igv.html"><a href="module-2-data-visualization-with-igv.html#lecture-1"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-2-data-visualization-with-igv.html"><a href="module-2-data-visualization-with-igv.html#lab"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-data-visualization-with-igv.html"><a href="module-2-data-visualization-with-igv.html#visualization-part-1-getting-familiar-with-igv"><i class="fa fa-check"></i>Visualization Part 1: Getting Familiar with IGV</a></li>
+<li class="chapter" data-level="" data-path="module-2-data-visualization-with-igv.html"><a href="module-2-data-visualization-with-igv.html#visualization-part-2-inspecting-snps-snvs-and-svs"><i class="fa fa-check"></i>Visualization Part 2: Inspecting SNPs, SNVs, and SVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-data-visualization-with-igv.html"><a href="module-2-data-visualization-with-igv.html#visualization-part-3-automating-tasks-in-igv-optional"><i class="fa fa-check"></i>Visualization Part 3: Automating Tasks in IGV (Optional)</a></li>
+<li class="chapter" data-level="" data-path="module-2-data-visualization-with-igv.html"><a href="module-2-data-visualization-with-igv.html#visualization-part-4-visualizing-long-reads"><i class="fa fa-check"></i>Visualization Part 4: Visualizing Long Reads</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-2-data-visualization-with-igv.html"><a href="module-2-data-visualization-with-igv.html#lab-answers"><i class="fa fa-check"></i>Lab Answers</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-2-data-visualization-with-igv.html"><a href="module-2-data-visualization-with-igv.html#visualization-part-2-inspecting-snps-snvs-and-svs-1"><i class="fa fa-check"></i>Visualization Part 2: Inspecting SNPs, SNVs, and SVs</a></li>
+<li class="chapter" data-level="" data-path="module-2-data-visualization-with-igv.html"><a href="module-2-data-visualization-with-igv.html#visualization-part-4-visualizing-long-reads-1"><i class="fa fa-check"></i>Visualization Part 4: Visualizing Long Reads</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html"><i class="fa fa-check"></i>Module 3</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lecture-2"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-3.html"><a href="module-3.html#lab-1"><i class="fa fa-check"></i>Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-4-single-nucleotide-variant-calling.html"><a href="module-4-single-nucleotide-variant-calling.html"><i class="fa fa-check"></i>Module 4: Single Nucleotide Variant Calling</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-single-nucleotide-variant-calling.html"><a href="module-4-single-nucleotide-variant-calling.html#lecture-3"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-4-single-nucleotide-variant-calling.html"><a href="module-4-single-nucleotide-variant-calling.html#lab-2"><i class="fa fa-check"></i>Lab</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-4-single-nucleotide-variant-calling.html"><a href="module-4-single-nucleotide-variant-calling.html#calling-variants-with-gatk"><i class="fa fa-check"></i>Calling Variants with GATK</a></li>
+<li class="chapter" data-level="" data-path="module-4-single-nucleotide-variant-calling.html"><a href="module-4-single-nucleotide-variant-calling.html#investigating-the-snp-calls"><i class="fa fa-check"></i>Investigating the SNP Calls</a></li>
+<li class="chapter" data-level="" data-path="module-4-single-nucleotide-variant-calling.html"><a href="module-4-single-nucleotide-variant-calling.html#filter-the-variants"><i class="fa fa-check"></i>Filter the Variants</a></li>
+<li class="chapter" data-level="" data-path="module-4-single-nucleotide-variant-calling.html"><a href="module-4-single-nucleotide-variant-calling.html#adding-functional-consequence"><i class="fa fa-check"></i>Adding Functional Consequence</a></li>
+<li class="chapter" data-level="" data-path="module-4-single-nucleotide-variant-calling.html"><a href="module-4-single-nucleotide-variant-calling.html#investigating-the-functional-consequence-of-variants"><i class="fa fa-check"></i>Investigating the Functional Consequence of Variants</a></li>
+<li class="chapter" data-level="" data-path="module-4-single-nucleotide-variant-calling.html"><a href="module-4-single-nucleotide-variant-calling.html#adding-dbsnp-annotations"><i class="fa fa-check"></i>Adding dbSNP Annotations</a></li>
+<li class="chapter" data-level="" data-path="module-4-single-nucleotide-variant-calling.html"><a href="module-4-single-nucleotide-variant-calling.html#investigating-the-trio-optional-1"><i class="fa fa-check"></i>Investigating the Trio (Optional)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-5-structural-variant-calling.html"><a href="module-5-structural-variant-calling.html"><i class="fa fa-check"></i>Module 5: Structural Variant Calling</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-5-structural-variant-calling.html"><a href="module-5-structural-variant-calling.html#lecture-4"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-5-structural-variant-calling.html"><a href="module-5-structural-variant-calling.html#lab-3"><i class="fa fa-check"></i>Lab</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="module-6-genome-assembly.html"><a href="module-6-genome-assembly.html"><i class="fa fa-check"></i>Module 6: Genome Assembly</a>
+<ul>
+<li class="chapter" data-level="" data-path="module-6-genome-assembly.html"><a href="module-6-genome-assembly.html#lecture-5"><i class="fa fa-check"></i>Lecture</a></li>
+<li class="chapter" data-level="" data-path="module-6-genome-assembly.html"><a href="module-6-genome-assembly.html#lab-4"><i class="fa fa-check"></i>Lab</a></li>
+</ul></li>
+<li class="divider"></li>
+<h1 id="sponsors">Sponsors</h1>
+<center>
+<a href="https://oicr.on.ca/"><img src="img/sponsors/oicr.png" width=25% style="display:inline-block;" style="padding-bottom: 20px" alt="Ontario Institute for Cancer Research logo.">
+<a href="https://www.hpcforhealth.ca/"><img src="img/sponsors/hpc4health.png" width=60% style="display:inline-block;" style="padding-bottom: 20px "alt="HPC4Health logo.">
+<br><br>
+<a href="https://computationalgenomics.ca/"><img src="img/sponsors/c3g-logo.png" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="Canadian Centre for Computational Genomics logo.">
+<a href="https://aws.amazon.com/fr/education/awseducate/"><img src="img/sponsors/AWS-educate-logo.png" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="AWS Educate logo.">
+<br><br>
+<a href="https://www.mcgill.ca/neuro/"><img src="img/sponsors/neuro-logo.png" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="The Neuro logo.">
+<a href="https://www.impactt-microbiome.ca/"><img src="img/sponsors/IMPACTT-logo.png" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="IMPACTT logo.">
+<br><br>
+<a href="https://www.mcgill.ca/micm/"><img src="img/sponsors/MICM-logo.png" style="display:inline-block;" width=35% style="padding-bottom: 20px" alt="McGill Initiative in Computation Medicine logo.">
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">High Throughout Genomics Analysis 2021</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="module-6-genome-assembly" class="section level1 hasAnchor">
+<h1>Module 6: Genome Assembly<a href="module-6-genome-assembly.html#module-6-genome-assembly" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="lecture-5" class="section level2 hasAnchor">
+<h2>Lecture<a href="module-6-genome-assembly.html#lecture-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<iframe src="https://drive.google.com/file/d/1AlEzENO7255ymBqUzNNVv5nx9OTgEddp/preview" width="640" height="480" allow="autoplay">
+</iframe>
+</div>
+<div id="lab-4" class="section level2 hasAnchor">
+<h2>Lab<a href="module-6-genome-assembly.html#lab-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction-4" class="section level4 hasAnchor">
+<h4>Introduction<a href="module-6-genome-assembly.html#introduction-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In this lab we will perform de novo genome assembly of a bacterial genome using three different sequencing technologies. You will be guided through the genome assembly. At the end of the lab you will know:</p>
+<ol style="list-style-type: decimal">
+<li>How to run a short read assembler on Illumina data</li>
+<li>How to run a long read assembler on Pacific Biosciences or Oxford Nanopore data</li>
+<li>How to polish a long read assembly</li>
+<li>How to assess the quality of an assembly</li>
+</ol>
+</div>
+<div id="data-sets" class="section level4 hasAnchor">
+<h4>Data Sets<a href="module-6-genome-assembly.html#data-sets" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In this lab we will use a bacterial data set to demonstrate genome assembly. This data set consists of sequencing reads for Escherichia coli. E. coli is a great data set for getting started on genome assembly as it is a small genome (4.6 Mbp) with relatively few repeats, and has a high quality reference. We have provided Illumina, PacBio HiFi and Oxford Nanopore reads for this genome. In this lab, you will make assemblies of the complete E. coli genome using <code>spades</code> and <code>flye</code>.</p>
+</div>
+<div id="data-preparation" class="section level4 hasAnchor">
+<h4>Data Preparation<a href="module-6-genome-assembly.html#data-preparation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>First, lets create and move to a directory that we’ll use to work on our assemblies:</p>
+<pre><code>mkdir -p ~/workspace/HTG/Module6
+cd ~/workspace/HTG/Module6</code></pre>
+<p>For convenience, we’ll make symbolic links to the data sets that we’ll work with. Run this command from the terminal, which will find all of the sequencing data sets we provided (using the <code>ls</code> command) and symlink those files into your current working directory.</p>
+<pre><code>ls ~/CourseData/HTG_data/Module6/ecoli* | xargs -i ln -s {}</code></pre>
+<p>If you run <code>ls</code> you should now be able to see the three datasets. There are two files for the Illumina data as the two halves of the paired end reads are in separate files.</p>
+</div>
+<div id="e.-coli-genome-assembly-with-short-reads" class="section level4 hasAnchor">
+<h4>E. coli Genome Assembly with Short Reads<a href="module-6-genome-assembly.html#e.-coli-genome-assembly-with-short-reads" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now we’ll assemble the E. coli Illumina data using the <a href="http://bioinf.spbau.ru/spades">spades</a> assembler. Parameterizing a short read assembly can be tricky and tuning the parameters (for example the size of the k-mer used) is often quite time consuming. Thankfully, spades will automatically select values for its parameters, making it particularly easy to use. You can start spades with this command (it will take a few minutes to run):</p>
+<pre><code>spades.py -o ecoli_illumina_spades/ -t 4 -1 ecoli_illumina_1.fastq -2 ecoli_illumina_2.fastq</code></pre>
+<p>After the assembly completes, let’s move the results to a new directory that we’ll use to keep track of all of our assemblies</p>
+<pre><code>mkdir -p assemblies
+cp ecoli_illumina_spades/contigs.fasta assemblies/ecoli_illumina_spades.fasta</code></pre>
+<p>We can now start assessing the quality of our assembly. We typically measure the quality of an assembly using three factors:</p>
+<ul>
+<li>Contiguity: Long contigs are better than short contigs as long contigs give more information about the structure of the genome (for example, the order of genes)</li>
+<li>Completeness: Most of the genome should be assembled into contigs with few regions missing from the assembly</li>
+<li>Accuracy: The assembly should have few large-scale misassemblies and consensus errors (mismatches or insertions/deletions)</li>
+</ul>
+<p>We’ll use <code>abyss-fac</code> to calculate how contiguous our spades assembly is. Typically there will be a lot of short “leftover” contigs consisting of repetitive or low-complexity sequence, or reads with a very high error rate that could not be assembled. We don’t want to include these in our statistics so we’ll only use contigs that are at least 500bp in length (protip: piping tabular data into <code>column -t</code> will format the output so the columns nicely line up):</p>
+<pre><code>abyss-fac.pl -t 500 assemblies/ecoli_illumina_spades.fasta | column -t</code></pre>
+<p>The N50 statistic is the most commonly used measure of assembly contiguity. An N50 of x means that 50% of the assembly is represented in contigs x bp or longer. What is the N50 of the spades assembly? How many contigs were produced?</p>
+</div>
+<div id="e.-coli-genome-assembly-with-long-reads" class="section level4 hasAnchor">
+<h4>E. coli Genome Assembly with Long Reads<a href="module-6-genome-assembly.html#e.-coli-genome-assembly-with-long-reads" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now, we’ll use long sequencing reads to assemble the E. coli genome. Long sequencing reads are better at resolving repeats and typically give much more contiguous assemblies. Long reads need to use a different assembly strategy. For this tutorial, we’ll use <a href="https://github.com/fenderglass/Flye">flye</a> to assemble the PacBio HiFi dataset. Flye is a state-of-the-art assembler that is quite fast to run. Like Spades it is easy to configure as we only need to tell it the type of data we are using:</p>
+<pre><code>flye --out-dir ecoli_pacbio_flye --threads 4 --pacbio-hifi ecoli_pacbio.fastq</code></pre>
+<p>After the assembly completes, copy it to your assemblies directory:</p>
+<pre><code>cp ecoli_pacbio_flye/assembly.fasta assemblies/ecoli_pacbio_flye.fasta</code></pre>
+<p>Our data set also includes an Oxford Nanopore data set. We can now assemble it using flye - the command is very similar, we just need to tell flye we are assembling nanopore data and change the input filename:</p>
+<pre><code>flye --out-dir ecoli_nanopore_flye --threads 4 --nano-raw ecoli_nanopore.fastq</code></pre>
+<p>And we’ll copy the assembly:</p>
+<pre><code>cp ecoli_nanopore_flye/assembly.fasta assemblies/ecoli_nanopore_flye.fasta</code></pre>
+</div>
+<div id="assessing-the-quality-of-your-assemblies-using-a-reference" class="section level4 hasAnchor">
+<h4>Assessing the Quality of your Assemblies using a Reference<a href="module-6-genome-assembly.html#assessing-the-quality-of-your-assemblies-using-a-reference" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The accuracy of the genome assembly is determined by how many misassemblies (large-scale rearrangements) and consensus errors (mismatches, insertions or deletions) the assembler makes. Calculating the accuracy of an assembly typically requires the use of a reference genome. We will use the <a href="http://quast.bioinf.spbau.ru/">QUAST</a> software package to assess the accuracy of the assemblies.</p>
+<p>Run QUAST on your three E. coli assemblies by running this command:</p>
+<pre><code>quast.py -R ~/CourseData/HTG_data/Module6/references/ecoli_k12.fasta assemblies/*.fasta</code></pre>
+<p>Using the web browser for your instance, open the QUAST PDF report (Module6/quast_results/latest/report.pdf) and try to determine which of the assemblies was a) the most complete b) the most contiguous and c) the most accurate.</p>
+</div>
+<div id="assembly-polishing" class="section level4 hasAnchor">
+<h4>Assembly Polishing<a href="module-6-genome-assembly.html#assembly-polishing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The nanopore assembly can be improved by running a “polishing” step. There are many assembly polishing programs available for nanopore data (nanopolish, racon). To demonstrate polishing we will use a program called <code>medaka</code> that is particularly fast and easy to run.</p>
+<p>We’re now going to use <code>medaka</code> to improve our assembly. Medaka uses a neural network which is trained to calculate a better consensus sequence for nanopore assemblies:</p>
+<pre><code>medaka_consensus -i ecoli_nanopore.fastq -d assemblies/ecoli_nanopore_flye.fasta -o ecoli_nanopore_medaka_polished -t 1</code></pre>
+<p>Now we can copy the medaka assembly to our output directory:</p>
+<pre><code>cp ecoli_nanopore_medaka_polished/consensus.fasta assemblies/ecoli_nanopore_flye_medaka.fasta</code></pre>
+<p>Now, re-run the QUAST step from above:</p>
+<pre><code>quast.py -R ~/CourseData/HTG_data/Module6/references/ecoli_k12.fasta assemblies/*.fasta</code></pre>
+<p>The report will be updated in Module6/quast_results/latest/report.html (all versions will also be stored in their own time-stamped directories in Module6/quast_results). Did the quality of your nanopore assembly improve?</p>
+</div>
+<div id="bonus-exercise-time-permitting" class="section level4 hasAnchor">
+<h4>Bonus Exercise (time permitting)<a href="module-6-genome-assembly.html#bonus-exercise-time-permitting" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now, you can try to make a <em>hybrid</em> assembly where reads from two technologies are assembled together. Try to use <code>spades</code> to make a hybrid assembly of the Illumina and nanopore datasets. We’re not going to give you the command for this step, so you have a chance to run it on your own (hint: if you run <code>spades.py --help</code> it will print the list of options that the program takes). If you are stuck ask an instructor for help!</p>
+<p>How does the hybrid assembly compare to the illumina-only or nanopore-only assemblies?</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="module-5-structural-variant-calling.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/bioinformaticsdotca/HTG_2021/blob/main/060-module-6.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
